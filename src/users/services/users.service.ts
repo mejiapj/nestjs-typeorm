@@ -69,13 +69,12 @@ export class UsersService {
     this.users.splice(index, 1);
     return true;
   }
-
-  getOrderByUser(id: number): Order {
+  async getOrderByUser(id: number) {
     const user = this.findOne(id);
     return {
       date: new Date(),
       user,
-      products: this.productsService.findAll(),
+      products: await this.productsService.findAll(),
     };
   }
 

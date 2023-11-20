@@ -15,13 +15,13 @@ export class ProductsService {
     return this.productRepo.find();
   }
 
-   async findOne(id: number) {
-     const product = await this.productRepo.findOne({ where: { id } });
+  async findOne(id: number) {
+    const product = await this.productRepo.findOne({ where: { id } });
     if (!product) {
       throw new NotFoundException(`Product #${id} not found`);
     }
     return product;
- }
+  }
 
   create(data: CreateProductDto) {
     // const newProduct = new Product();
